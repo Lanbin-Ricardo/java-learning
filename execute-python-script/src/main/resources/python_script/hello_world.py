@@ -1,8 +1,8 @@
 # hello.py
 import sys
 
-def say_hello(name):
-    print("Hello "+ name)
+def add(val1, val2):
+    return val1+val2
 
 if __name__ == "__main__":
     name = globals().get('name', None)

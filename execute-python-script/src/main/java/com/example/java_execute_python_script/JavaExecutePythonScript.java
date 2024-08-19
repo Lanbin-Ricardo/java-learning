@@ -30,5 +30,9 @@ public class JavaExecutePythonScript {
         engine.put("person", person);
 
         engine.eval(fr);
+
+        Invocable invocable = (Invocable) engine;
+        Object result = invocable.invokeFunction("add", 5, 3);
+        System.out.println("Result: " + result);
     }
 }
