@@ -18,10 +18,11 @@ public class ProcessBuilderTest {
     public static void main(String[] args) throws Exception {
         Gson gson = new Gson();
         List<Person> personList = List.of(new Person("Sam", 2), new Person("Jack", 4));
-        String json = gson.toJson(personList);
+        // in case Windows remove double quotes
+        String json = gson.toJson(personList).replace("\\\"", "\\\\\"");
         // Create a ProcessBuilder to run the Python script
         File file = new File(ProcessBuilderTest.class.getClassLoader().getResource("python_script/hello_world_process_builder.py").getFile());
-        ProcessBuilder processBuilder = new ProcessBuilder("python", file.getAbsolutePath(), "Sam", json);
+        ProcessBuilder processBuilder = new ProcessBuilder("python3", file.getAbsolutePath(), "Sam", json);
         processBuilder.redirectErrorStream(true);
 
         // Start the process

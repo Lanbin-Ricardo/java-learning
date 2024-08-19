@@ -4,7 +4,7 @@ import json
 # Get the argument passed from Java
 name = sys.argv[1]
 personList = sys.argv[2]
-
+print(personList)
 # Print the argument (this will be captured by Java)
 # Return a result back to Java
 result = "Hello " + name
