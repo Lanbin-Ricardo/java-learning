@@ -1,11 +1,15 @@
 import sys
+import json
 
 # Get the argument passed from Java
-arg_from_java = sys.argv[1]
+name = sys.argv[1]
+personList = sys.argv[2]
 
 # Print the argument (this will be captured by Java)
-print("Received argument: " + arg_from_java)
-
 # Return a result back to Java
-result = "Hello from Python"
+result = "Hello " + name
 print(result)
+
+python_obj = json.loads(personList)
+for obj in python_obj:
+    print("Hello, I'm " + obj["name"] + " and I'm " + str(obj["age"]) + " years old")
