@@ -6,8 +6,13 @@ def say_hello(name):
 
 if __name__ == "__main__":
     name = globals().get('name', None)
-    say_hello(name)
+    print("Hello "+ name)
 
     names = globals().get('names', [])
     for name1 in names:
-        say_hello(name1)
+        print("Hello "+ name)
+
+    person = globals().get('person', {})
+    print("Hello I'm " + person["name"] + " and I'm " + str(person["age"]) + " years old")
+
+
